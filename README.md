@@ -1,41 +1,47 @@
-# SYSC5405: Pattern Analysis and Experiment Design
+# BIOM/SYSC5405 – Pattern Classification and Experiment Design
 
-This repository contains the below-listed information on Carleton University's SYSC 5405: Pattern Analysis and Experiment Design.
-Please note, this information is specifically for FALL 2023.
-- [Lecture Notes](https://github.com/AbdulMutakabbir/SYSC5405-pattern-analysis-and-experiment-design/tree/lecture_notes)
-- Assignments
-  - [Assignment 1](https://github.com/AbdulMutakabbir/SYSC5405-pattern-analysis-and-experiment-design/tree/assignment_1)
-  - [Assignment 2](https://github.com/AbdulMutakabbir/SYSC5405-pattern-analysis-and-experiment-design/tree/assignment_2)
-  - [Assignment 3](https://github.com/AbdulMutakabbir/SYSC5405-pattern-analysis-and-experiment-design/tree/assignment_3)
-  - [Assignment 4](https://github.com/AbdulMutakabbir/SYSC5405-pattern-analysis-and-experiment-design/tree/assignment_4)
-- [Project](https://github.com/AbdulMutakabbir/SYSC5405-pattern-analysis-and-experiment-design/tree/project) 
+## Assignment 1  
 
+> Due: `11:59pm Tuesday 19 Sep`
+> #### Instructions:
+>
+> * Submit a `single PDF` file with all your answers, discussion, plots, etc
+> * `Include your code` either inline or in appendix
 
-## Description:
-The course is an introduction to various supervised and unsupervised pattern classification techniques with an emphasis on correct application. 
-Further, it focuses on statistically rigorous experimental design and reporting of performance results. 
-Case studies will be conducted in this course for various fields, with a focus on biomedical informatics.
+### Question 1: Data Wrangling
 
-### Prerequisites:
-Undergraduate introduction to probability and statistics.
+Consider two possible features for a new fruit classification system: `weight` and `diameter`. 
+Sample data for each feature is provided in [assigData2.tsv]()
 
-### Prior Knowledge:
-- Proficiency in at least one language: Python, R, MATLAB
-- Basic understanding of probability and statistics
-- Strong math skills: differential equations, matrix operation, and gradients
+> 100 weight and diameter measurements are given for three types of fruit: apple, orange, and grape. (File can be easily viewed in Excel or MATLAB. Columns are: `W_apl` `W_orng` `W_grp` `D_apl` `D_orng` `D_grp`)
 
-### Textbooks
-- Primary:
-  1. Duda, Hart, Stork, Pattern Classification, Wiley, Second Edition, ISBN 0-471-05669-3, 2001
-- Other References:
-  1. Cohen, Empirical Methods for Artificial Intelligence, MIT Press, 1995.
-  2. Sholom Weiss and Casmir Kulikowski, Computer Systems That Learn, Morgan Kaufmann, 1991
-  3. Hastie, Tibshirani, Friedman, Elements of Statistical Learning: Data Mining, Inference, and Prediction, Springer, 2008
-  4. James, Witten, Hastie, Tibshirani, An Introduction to Statistical Learning with Applications in R, Springer, 2013
-  5. Burkov, A. (2019). The Hundred-Page Machine Learning Book. Burkov, A. ISBN: 978-1-9995795-0-0
- 
-### Grading:
-- 30% - Assignments
-- 30% - Team Project
-- 40% - Final Exam
-  
+1. To develop a Bayesian classifier, we need to estimate the parameters of the class-conditional distribution for each feature and for each class. Assuming the class-conditional distributions follow normal distributions with unknown mean and variance for each class, estimate the six means and the six estimates of variance.
+
+2. Plot the histograms for each feature showing the distribution of each feature over each class. For each feature, you should have a single plot (single axis) with three potentially overlapping histograms representing the three fruit types.
+
+    1. Use transparency and a different colour and/or line style for each class and make sure you can see all the data (i.e., that bars are not completely occluding each other in your figure). 
+
+    2. Which feature would you prefer and why? (150 words)
+
+    3. Illustrate results using at least two bin widths when generating your histograms.
+
+3. Provide a plot visualizing apple weight vs. diameter. Add a line of best fit and report the Pearson Correlation 
+Coefficient. 
+
+### Question 2: Generating data & the normal distribution
+
+1. Generate 1000 samples drawn from a trivariate normal distribution with 
+
+    𝜇 = $\begin{bmatrix}5\\-0.5\\17\end{bmatrix}$, 
+
+    Σ = $\begin{bmatrix}4 & 0.5 & 0\\0.5 & 5 & −0.2\\0 & −0.2 & 2\end{bmatrix}$
+
+    > You do not need to provide the actual samples in your assignment submission. Instead, report estimates of the mean and variance of the first dimension based on your 1000 samples. Do your estimates agree with the actual values? (estimates + brief discussion)
+
+2. Create two scatter plots of the data, ensuring that the scale of both axes are equal so that the true shape of the distribution is visible. The first scatter plot should visualize the first two dimensions of your data. The second scatter plot should visualize dimension 1 vs. dimension 3. Why do their shapes differ? (25 words)
+
+3. What is its trace of Σ? Is Σ positive definite? Explain.
+
+4. Calculate and report the eigenvectors and eigenvalues of Σ.
+
+5. Lastly, plot the PDF and CDF for third dimension of your distribution.
