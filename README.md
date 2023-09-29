@@ -1,41 +1,51 @@
-# SYSC5405: Pattern Analysis and Experiment Design
+# BIOM/SYSC5405 – Pattern Classification and Experiment Design
 
-This repository contains the below-listed information on Carleton University's SYSC 5405: Pattern Analysis and Experiment Design.
-Please note, this information is specifically for FALL 2023.
-- Lecture Notes
-- Assignments
-  - Assignment 1
-  - Assignment 2
-  - Assignment 3
-  - Assignment 4
-- Project 
+## Assignment 2
+
+> Due: `11:00 pm Wednesday 11 Oct 2023`
+> #### Instructions:
+>
+> * Submit a `single PDF` file with all your answers, discussion, plots, etc
+> * `Include your code` either inline or in appendix
+> * All plots should have `title` and `both axis` `LABELED`
+> * Answers should be `ordered` from Q1 to Q6.
+
+> Consider two possible features for a new `COVID` classification system: temperature (`T`) and respiration rate (`RR`).
+> Sample data for each feature is provided in `A2Q2.csv`.
+> T and RR measurements are given for 200 healthy patients and 200 covid-positive patients.
+> (The file A2Q2.csv columns are: `T_healty`, `T_covid`, `RR_healty`, and `RR_covid`)
 
 
-## Description:
-The course is an introduction to various supervised and unsupervised pattern classification techniques with an emphasis on correct application. 
-Further, it focuses on statistically rigorous experimental design and reporting of performance results. 
-Case studies will be conducted in this course for various fields, with a focus on biomedical informatics.
+### Q1
 
-### Prerequisites:
-Undergraduate introduction to probability and statistics.
+Let’s focus on our `healthy` patients for this question. 
 
-### Prior Knowledge:
-- Proficiency in at least one language: Python, R, MATLAB
-- Basic understanding of probability and statistics
-- Strong math skills: differential equations, matrix operation, and gradients
+Create a categorical version of the temperature feature data using the rule:
+```
+if T_healthy <= 36.8:
+  T_cat = t-normal
+else:
+  T_cat = t-fever
+```
 
-### Textbooks
-- Primary:
-  1. Duda, Hart, Stork, Pattern Classification, Wiley, Second Edition, ISBN 0-471-05669-3, 2001
-- Other References:
-  1. Cohen, Empirical Methods for Artificial Intelligence, MIT Press, 1995.
-  2. Sholom Weiss and Casmir Kulikowski, Computer Systems That Learn, Morgan Kaufmann, 1991
-  3. Hastie, Tibshirani, Friedman, Elements of Statistical Learning: Data Mining, Inference, and Prediction, Springer, 2008
-  4. James, Witten, Hastie, Tibshirani, An Introduction to Statistical Learning with Applications in R, Springer, 2013
-  5. Burkov, A. (2019). The Hundred-Page Machine Learning Book. Burkov, A. ISBN: 978-1-9995795-0-0
- 
-### Grading:
-- 30% - Assignments
-- 30% - Team Project
-- 40% - Final Exam
-  
+Now create an ordinal version of the respiration rate feature data using the rule:
+```
+if RR_healthy < 19.0:
+  RR_ord = RR-low
+else if RR_healthy < 23.0:
+  RR_ord = RR-med
+else:
+  RR_ord = RR-high
+```
+
+Create a `contingency table` for your new data and use a `χ2 test` to check if `t_cat` is significantly correlated with `RR_ord`. 
+Report your null hypothesis H0 (~15 words), your alternate hypothesis H1, your χ2 value, your degrees of freedom, your p-value, and your conclusion (~20 words).
+
+
+### Q2
+
+Compute the inter-quartile range and the `10% trimmed mean` of `T_healthy`. 
+(10% means dropping the top and bottom 5% of samples)
+
+
+### Q3
