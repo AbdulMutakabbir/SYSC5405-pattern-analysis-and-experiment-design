@@ -2,7 +2,7 @@
 
 ## Assignment 1  
 
-> Due: `11:59pm Tuesday 19 Sep`
+> Due: `11:59 pm Tuesday 19 Sep 2023`
 > #### Instructions:
 >
 > * Submit a `single PDF` file with all your answers, discussion, plots, etc
