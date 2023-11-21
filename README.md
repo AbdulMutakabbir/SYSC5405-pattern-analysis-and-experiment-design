@@ -46,14 +46,18 @@ Report the accuracy over each fold, the average accuracy across all five folds, 
 ### Part 5:
 Train another SVM model (same kernel & C) on all of your training samples. 
 Test on the test subset. 
-Report the accuracy on the test subset. Does it fall within 1 standard deviation of the average accuracy observed in Part 4?
+Report the accuracy on the test subset. Does it fall within 1 standard deviation of the average accuracy observed in [Part 4](https://github.com/AbdulMutakabbir/SYSC5405-pattern-analysis-and-experiment-design/tree/assignment_4#part-4)?
 
 ### Part 6:
 For this question only, assume that the misclassification costs are as follows:
-<td colspan=2> <td colspan=3> Actual| - 
-| Prediction | Low | 0 | 1 | 2 | 
 
-1. What is your total misclassification cost for the test set predictions from Part 5 above?
+|            |      |      |Actual|      |
+|------------| :--: | :--: | :--: | :--: |
+|            | Low  |  0   |  1   |  2   | 
+| Prediction | Med  |  1   |  0   |  1   | 
+|            | High |  2   |  1   |  0   | 
+
+1. What is your total misclassification cost for the test set predictions from [Part 5](https://github.com/AbdulMutakabbir/SYSC5405-pattern-analysis-and-experiment-design/tree/assignment_4#part-5) above?
 2. How could you incorporate this loss information into your classifier design? (`60 words`)
 
 ### Part 7:
@@ -62,7 +66,7 @@ Report your accuracy for `numH=[1, 10, 100]` hidden nodes.
 Use the ‘adam’ solver, a hyperbolic tangent activation function for the hidden layers.
 
 ### Part 8:
-Returning to Part 3, compare a naïve Bayes classifier trained using only the ‘most useful’ feature to a naïve Bayes classifier trained using all five features. 
+Returning to [Part 3](https://github.com/AbdulMutakabbir/SYSC5405-pattern-analysis-and-experiment-design/tree/assignment_4#part-3), compare a naïve Bayes classifier trained using only the ‘most useful’ feature to a naïve Bayes classifier trained using all five features. 
 Describe how you split/used your data, how you tested the hypothesis (null hypothesis, alternative hypothesis, test metric, etc.), what p-value you 
-obtained, and your conclusion
+obtained, and your conclusion.
 
