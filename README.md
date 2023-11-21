@@ -49,3 +49,43 @@ Compute the inter-quartile range and the `10% trimmed mean` of `T_healthy`.
 
 
 ### Q3
+
+Using `bootstrapping`, compute the 90% confidence interval of the “10% trimmed mean” of 
+T_healthy. 
+Follow Procedure 5.6 from Cohen’s text:  
+1. Construct a distribution from K bootstrap samples for a statistic u; * 
+2. Sort the values in the distribution 
+3. The lower bound of the 90% confidence interval is the (K*0.05)th value, the upper 
+bound is the (K*0.95)th value in the sorted distribution. 
+
+> *Here, u is the observed trimmed mean  and a bootstrap sample will consist of 200 samples drawn with replacement from T_healthy. 
+
+
+### Q4
+
+Examine the RR feature. 
+Combine the RR feature data for both classes to create `RR_combined`. 
+Do the RR_combined feature data contain outliers? 
+Describe how you tested this and what conclusions you drew. 
+How did the mean and median of RR_combined change with the outliers (if any) removed? 
+(50 words + calculations)
+
+
+### Q5
+
+Using `randomization` (or permutation), test  whether RR_covid has significantly greater 
+mean than RR_healthy. 
+Briefly describe how you did this. 
+What p-value did you obtain? 
+What conclusion do you draw? 
+(50 words) 
+
+
+### Q6
+
+Let’s use temperature alone to create a simple classifier. 
+Plot an ROC curve for temperature 
+Assume that `T_covid` samples actually have  class = +1 and `T_healthy` samples actually 
+have class = 0.
+Our classifier will apply a tunable threshold  to determine whether each sample should be predicted to have class 0 (healthy) or class 1 (covid). 
+Report the AUC value in the title of the plot. 
