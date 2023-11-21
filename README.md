@@ -2,10 +2,17 @@
 
 ## Assignment 3
 
-> Due: `11:59 pm Monday 20 Nov 2023`
+> Due: `11:59 pm Saturday 4 Nov 2023`
 > #### Instructions:
 > * Submit a `single PDF` file with all your answers, discussion, plots, etc on `BrightSpace and Feedback Fruits`
 > * `Include your code` either inline or in appendix
+
+> Assume that you have developed a noncontact patient monitoring system that screens passengers as they approach the buffet on a cruise ship and measures  their respiration rate (`RR`) and their temperature (`T`). 
+> We want to use these two biosignals to generate scores indicating how likely it is that a passenger has contracted COVID-19 before letting them use the spoons on the buffet.   
+>
+> Sample data for each feature is provided in `A2Q2.csv`. 
+> 200 T and RR measurements are given for two types of patients: `healty` and `covid`. 
+> (The file A2Q2.csv can be easily viewed in Excel or MATLAB. Columns are: T_healty T_covid RR_healty RR_covid)
 
 
 ### Question 1:
