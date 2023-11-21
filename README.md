@@ -7,20 +7,10 @@
 >
 > * Submit a `single PDF` file with all your answers, discussion, plots, etc on `BrightSpace and Feedback Fruits`
 > * `Include your code` either inline or in appendix
-> #### Information:
-> Dataset describes the efficieny of houses.
-> Each home is described using five features that can be measured from an instrumented vehicle parked on the 
-street in front of the home.
-> * Dataset has:
->   * `300` samples
->   * `3` classes
->     * 0 => low
->     * 1 => med
->     * 2 => high
-> * Label Column: `Efficiency`
-> * Feature Column: [`Thermal`, `Area`, `Glazing`, `Clading`, `Roofing`]
-> 
-> Our goal is to develop a diagnostic tool that will classify each house
+
+> You are given a 3-class dataset of 300 homes labelled by their overall energy efficiency: 0=low, 1=med, 2=high. 
+> Each home is described using five features that can be measured from an instrumented vehicle parked on the street in front of the home. 
+> Our goal is to develop a diagnostic tool that will classify each house.
 
 ### Part 1:
 Load the dataset in `A4.txt`. 
@@ -53,6 +43,7 @@ For this question only, assume that the misclassification costs are as follows:
 
 |            |      |      |Actual|      |
 |------------| :--: | :--: | :--: | :--: |
+|            |      | Low  | Med  | High |
 |            | Low  |  0   |  1   |  2   | 
 | Prediction | Med  |  1   |  0   |  1   | 
 |            | High |  2   |  1   |  0   | 
