@@ -10,28 +10,26 @@ Created on Sat Nov 25 10:36:43 2023
 import numpy as np 
 import pandas as pd 
 from matplotlib import pyplot as plt
-from sklearn.model_selection import train_test_split
-from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import f1_score
 from sklearn.neural_network import MLPClassifier
 
 #%%
 
 R1 = pd.read_csv('../data/R1_train.csv') 
-R1 = (np.array(R1))[0:1000,:]
+R1 = (np.array(R1))
 R2 = pd.read_csv('../data/R2_train.csv') 
-R2 = (np.array(R2))[0:1000,:]
+R2 = (np.array(R2))
 R3 = pd.read_csv('../data/R3_train.csv') 
-R3 = (np.array(R3))[0:1000,:]
+R3 = (np.array(R3))
 R4 = pd.read_csv('../data/R4_train.csv') 
-R4 = (np.array(R4))[0:1000,:]
+R4 = (np.array(R4))
 R5 = pd.read_csv('../data/R5_train.csv') 
-R5 = (np.array(R5))[0:1000,:]
+R5 = (np.array(R5))
 R6 = pd.read_csv('../data/R6_train.csv') 
-R6 = (np.array(R6))[0:1000,:]
+R6 = (np.array(R6))
 
 y = pd.read_csv('../data/labels_train.csv') 
-y = (np.array(y))[0:1000,:]
+y = (np.array(y))
 
 # Will need to normalize the data, I think
 
@@ -128,32 +126,33 @@ for j in range(len(index_list)):
 
 #%%
 
-
+f1_matrix = np.zeros((6,10))
 # For each R file (each subset of features)
 
-# For each fold
-for i in range(10):
-    train_index = []
-    for j in range(10):
-        if j != i:
-            train_index.append(index_list[j])
+for k in range(len(Rfiles)): # 
+    X = Rfiles[k]
+    # For each fold
+    for i in range(10):
+        train_index = []
+        for j in range(10):
+            if j != i:
+                train_index = train_index + index_list[j]
+        test_index = index_list[i]
+        
+        y_train = y[train_index,:]
+        X_train = X[train_index,:]
+        y_test = y[test_index,:]
+        X_test = X[test_index,:]
     
-    y_train = y[:,:]
-
-clf = MLPClassifier(solver = 'adam', activation='logistic', max_iter=5000,
-                    hidden_layer_sizes=(0))
-skf = StratifiedKFold(n_splits = 10, shuffle = True)
-
-for i, (train_index, test_index) in enumerate(skf.split(R1, y)):
-    print(f"Fold {i}:")
-    print(f"  Train: index={train_index}")
-    print(f"  Test:  index={test_index}")
-    clf.fit(R1, y)
-    
+        # didn't let me have no hidden layers
+        clf = MLPClassifier(solver = 'adam', activation='logistic', max_iter=5000,
+                            hidden_layer_sizes=(np.shape(X)[1]))
+        
+        clf.fit(X_train, y_train)
+        y_pred = clf.predict(X_test)
+        f1_score_output = f1_score(y_test, y_pred, average = 'micro')
+        print(f"Rfile {k+1}, fold {i+1}, f1_score: {f1_score_output}")
+        f1_matrix[k,i] = f1_score_output
+        
 
 #%%
-
-CV_score = cross_val_score(clf, X_train, y_train, cv = CV)
-CV_scores.append(CV_score)
-mean_CV_scores.append(CV_score.mean())
-std_CV_scores.append(CV_score.std())
