@@ -2,7 +2,6 @@
 
 This repository contains the below-listed information on Carleton University's SYSC 5405: Pattern Analysis and Experiment Design.
 Please note, this information is specifically for FALL 2023.
-- [Lecture Notes](https://github.com/AbdulMutakabbir/SYSC5405-pattern-analysis-and-experiment-design/tree/lecture_notes)
 - Assignments
   - [Assignment 1](https://github.com/AbdulMutakabbir/SYSC5405-pattern-analysis-and-experiment-design/tree/assignment_1)
   - [Assignment 2](https://github.com/AbdulMutakabbir/SYSC5405-pattern-analysis-and-experiment-design/tree/assignment_2)
